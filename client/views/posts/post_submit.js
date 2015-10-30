@@ -6,17 +6,23 @@ Template.postSubmit.events({
       url: $(e.target).find('[name=url]').val(),
       title: $(e.target).find('[name=title]').val()
     };
-
+    if(!post.url || !post.title){
+      Errors.throw('Fields not filled!');
+      return false;
+    }
     Meteor.call('postInsert', post, function(error, result) {
       // display the error to the user and abort
-      if (error)
-         Errors.throw(error.reason);;
-
+      if (error){
+        Errors.throw(error.reason);;
+      }
       // show this result but route anyway
-      if (result.postExists)
+      else if (result.postExists){
+        // Router.go('postPage', {_id: result._id});
         Errors.throw('This link has already been posted');
-
-      Router.go('postPage', {_id: result._id});
+      }
+      else if (!result.postExists && error) {
+        Router.go('postPage', {_id: result._id});
+      }
     });
   }
 });

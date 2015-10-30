@@ -16,7 +16,7 @@ api.versionsFrom('METEOR@0.9.0');
 
   api.use(['minimongo', 'mongo-livedata', 'templating'], 'client');
 
-  api.add_files(['errors.js', 'errors_list.html', 'errors_list.js'], 'client');
+  api.add_files(['errors.js', 'errors_list.html', 'errors_list.js', 'errors_list.css'], 'client');
 
   if (api.export)
     api.export('Errors');

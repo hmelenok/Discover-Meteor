@@ -1,0 +1,11 @@
+.alert {
+    animation: fadeIn 270ms ease-in 0s 1 forwards !important;
+    -webkit-animation: fadeIn 270ms ease-in 0s 1 forwards !important;
+    -moz-animation: fadeIn 270ms ease-in 0s 1 forwards !important;
+}
+.hmelenok-error-container{
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 2
+}
