@@ -2,7 +2,7 @@ Comments = new Meteor.Collection('comments');
 
 Meteor.methods({
   comment: function(commentAttributes) {
-
+    check(commentAttributes, {body: String, postId: String});
 
 
     var user = Meteor.user();
