@@ -33,7 +33,8 @@ Meteor.methods({
       title: postAttributes.title,
       userId: user._id,
       author: user.username,
-      submitted: new Date()
+      submitted: new Date(),
+      commentsCount: 0,
     });
 
 
