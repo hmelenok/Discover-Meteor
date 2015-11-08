@@ -1,5 +1,5 @@
-UI.registerHelper('pluralize', function(n, thing) {
-  // простой как барабан pluralizer
+Template.registerHelper('pluralize', function(n, thing) {
+  // fairly stupid pluralizer
   if (n === 1) {
     return '1 ' + thing;
   } else {

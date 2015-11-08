@@ -23,6 +23,7 @@ sacha:spin
 accounts-password
 accounts-ui
 audit-argument-checks
-check
 hmelenok:errors
 tinytest
+multiply:iron-router-progress
+check
