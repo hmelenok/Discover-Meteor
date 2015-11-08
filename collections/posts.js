@@ -35,6 +35,8 @@ Meteor.methods({
       author: user.username,
       submitted: new Date(),
       commentsCount: 0,
+      upvoters: [],
+      votes: 0,
     });
 
 
@@ -42,5 +44,19 @@ Meteor.methods({
     return {
       _id: postId
     };
-  }
+  },
+  upvote: function(postId) {
+    var user = Meteor.user();
+    check(user, Object);
+    // удостоверимся, что пользователь залогинен
+
+    var post = Posts.findOne(postId);
+    check(post, Object);
+
+    if (_.include(post.upvoters, user._id) || !user || !post) { return false; }
+    Posts.update(post._id, {
+      $addToSet: {upvoters: user._id},
+      $inc: {votes: 1}
+    });
+  },
 });
